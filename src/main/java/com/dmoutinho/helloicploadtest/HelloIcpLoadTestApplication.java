@@ -33,7 +33,7 @@ class HelloICPController {
 	
 	private List<RequestTask> requests;
 	
-	@GetMapping("/start")
+	@GetMapping("/request-task/start")
 	ResponseEntity<?> start() {
 		
 		ResponseEntity<Message> responseEntity = null;
@@ -65,7 +65,7 @@ class HelloICPController {
     
 	}
 	
-	@GetMapping("/stop")
+	@GetMapping("/request-task/stop")
 	ResponseEntity<?> stop() {
 		
 		ResponseEntity<Message> responseEntity = null;
@@ -89,6 +89,17 @@ class HelloICPController {
         return responseEntity;
     
 	}
+	
+	@GetMapping("")
+	ResponseEntity<String> root() {
+		ResponseEntity<String> responseEntity = null;
+		try {
+			responseEntity = new ResponseEntity<String>("OK",HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return responseEntity;
+	}	
 		
 }
 
